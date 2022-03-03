@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgba(233, 233, 233, 1);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+
+}
+
+.box{
+    width: 350px;
+    /* background-color: rgba(255, 255, 255, 1); */
+    /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); */
+}
+
+section {
+    width: 100%;
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.upperSection{
+    margin-bottom: 1vh;
+}
+.upperSection h1{
+    text-align: center;
+    margin-bottom: 3vh;
+}
+.upperSection form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upperSection form input{
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border : 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.upperSection form button.addBtn{
+    font-size: 30px;
+    border: none;
+    background: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+
+.upperSection form button.addBtn:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.15);
+    color: rgba(0, 0, 0, 1);
+}
+
+.middleSection{
+    display: block;
+}
+
+.middleSection.noArray{
+    display: none;
+    
+}
+
+.middleSection ul {
+    width: 100%;
+}
+.middleSection ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    background: rgba(255, 255, 255, 1);
+    margin: 10px 0;
+    height: 35px;
+    /* padding: 10px 20px; */
+    border-bottom: 1px solid rgba(233, 233, 233, 1 );
+}
+
+.middleSection ul li.checked {
+}
+
+.middleSection ul li .btn {
+    width: 30px;
+    height: 30px;
+    padding: 8px 15px;
+    border: none;
+    background: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+.middleSection ul li .btn i{
+    pointer-events: none;
+}
+
+.middleSection ul li .btn.checkBtn:hover {
+    color: rgb(195, 228, 74, 1)
+}
+
+.middleSection ul li.checked .btn.checkBtn {
+    color: rgb(195, 228, 74, 1)
+}
+
+.middleSection ul li .btn.delBtn:hover {
+    color: rgba(255, 2, 2, 1)
+}
+
+
+.middleSection ul li .todoText {
+    flex-grow: 1; 
+    margin-left: 10px;
+    padding-bottom: 5px;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 1); */
+    color : rgba(0, 0, 0, 1);
+}
+
+.middleSection ul li.checked .todoText {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+
+.bottomSection{
+    text-align: end;
+}
+
+.bottomSection .clearBtn{
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+/* 
+.bottomSection .clearBtn:hover {
+    background: rgba(255, 255, 255, 1);
+    color:rgba(0, 0, 0, 1);
+} */
+
+.bottomSection .clearBtn {}
