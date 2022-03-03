@@ -67,7 +67,7 @@ function todoList (){
 
     // list rendering
     function showTodo (){
-
+        console.log(localStorage.testing)
         if (listArr.length === 0) {
             middleSection.classList.add('noArray')
             bottomSection.classList.add('noArray')
@@ -100,14 +100,13 @@ function todoList (){
     
     // init
     function initTodo (){
-        if (!localStorage.testing){
-            listArr = []
-        } else {
+        if (localStorage.testing){
             const getList = localStorage.getItem('testing')
             const initList = JSON.parse(getList)
                 listArr.push(...initList)
-            showTodo();
         }
+        showTodo();
+
     }
     initTodo()
 }
