@@ -5,6 +5,8 @@ function todoList (){
     var ulTodo = document.querySelector('.todos')
     var listArr = []
     var dataNum = 0
+    const middleSection = document.querySelector('.middleSection')
+    const bottomSection = document.querySelector('.bottomSection')
 
     // -------------------- event handler --------------------
 
@@ -67,11 +69,12 @@ function todoList (){
     function showTodo (){
 
         if (listArr.length === 0) {
-            const middleSection = document.querySelector('.middleSection')
             middleSection.classList.add('noArray')
+            bottomSection.classList.add('noArray')
         } else {
-            const middleSection = document.querySelector('.middleSection')
             middleSection.classList.remove('noArray')
+            bottomSection.classList.remove('noArray')
+
         }
 
         const renderLi = listArr.map( (obj, i) => {

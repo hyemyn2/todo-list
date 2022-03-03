@@ -13,7 +13,6 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10vh;
 
 }
 
@@ -21,6 +20,7 @@ main{
     width: 350px;
     /* background-color: rgba(255, 255, 255, 1); */
     /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); */
+    margin: 10vh 0;
 }
 
 section {
@@ -73,13 +73,14 @@ section {
     color: rgba(0, 0, 0, 1);
 }
 
-.middleSection{
+.middleSection,
+.bottomSection{
     display: block;
 }
 
-.middleSection.noArray{
+.middleSection.noArray,
+.bottomSection.noArray{
     display: none;
-    
 }
 
 .middleSection ul {
