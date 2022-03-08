@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="todoList.js"></script>
+    <script type="text/javascript" src="todoList.js"></script>
     <script src="https://kit.fontawesome.com/011d02b296.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
         <div class="box">
-            <section class="upperSection">
+            <section id="upperSection">
                 <h1>Todo List</h1>
 
                 <form id="todoList" action="" name="todoList">
                     <input id="inputList" type="text" placeholder="add your todo list !" autocomplete="off">
-                    <button class="btn addBtn" type="submit">+</button>
+                    <button id="addBtn" class="btn" type="submit">+</button>
                 </form>
             </section>
-            <section class="middleSection">
-                <ul class="todos">
+            <section id="middleSection">
+                <ul id="todos">
                     <!-- <li class="todo">
                         <button class="btn checkBtn">v</button>
                         <span class="todoText">${arr}</span>
@@ -29,8 +29,8 @@
                     </li> -->
                 </ul>
             </section>
-            <section class="bottomSection">
-                <button class="clearBtn">
+            <section id="bottomSection">
+                <button id="clearBtn">
                     <span>clear all </span>
                     <i class="fa-solid fa-trash"></i>
                 </button>

@@ -1,73 +1,68 @@
 function todoList (){
-    var inputList = document.querySelector('input[id=inputList]')
-    var addBtn = document.querySelector('.addBtn')
-    var clearBtn = document.querySelector('.clearBtn')
-    var ulTodo = document.querySelector('.todos')
+    const inputList = document.getElementById('inputList')
+    const addBtn = document.getElementById('addBtn')
+    const clearBtn = document.getElementById('clearBtn')
+    const ulTodo = document.getElementById('todos')
+    const middleSection = document.getElementById('middleSection')
+    const bottomSection = document.getElementById('bottomSection')
     var listArr = []
     var dataNum = 0
-    const middleSection = document.querySelector('.middleSection')
-    const bottomSection = document.querySelector('.bottomSection')
 
     // -------------------- event handler --------------------
 
     addBtn.addEventListener('click', function (e) { addTodo(e) })
     clearBtn.addEventListener('click', function (e) { clearLocal(e) })
-    ulTodo.addEventListener('click', function (e) { deleteTodo(e) })
-    ulTodo.addEventListener('click', function (e) { checkTodo(e) })
+    ulTodo.addEventListener('click', function (e) { clickTodo(e) })
 
     // -------------------- event function --------------------
+
+    // click button(delete/check)
+    function clickTodo (e) {
+        if (e.target.className.includes('delBtn') === true) {
+            deleteTodo(e)
+        } else if (((e.target.className.includes('checkBtn') === true) || (e.target.className.includes('todo') === true)) && (e.target.className.includes('delBtn') === false)) {
+            checkTodo(e)
+        }
+    }
 
     // add list
     function addTodo (e){
         e.preventDefault();
-        // const newTodo = inputList.value
         const newTodo = {text: inputList.value, checked: false}
-
         if(inputList.value !== '') {
             listArr.push(newTodo);
-            saveLocal()
+            saveLocalStorage()
             inputList.focus()
         }
             inputList.value = '';
     }
 
-    // 
-
-    // delete list
-    function deleteTodo(e){
-        if (e.target.className.includes('delBtn') === true) {
-            dataNum = e.target.closest('li').dataset.num
-            listArr.splice(dataNum, 1)
-            // console.log(listArr)
-
-            saveLocal()
-        }
-    }
-
     // check list
     function checkTodo(e){
-        if(!e.target.classList.contains('checkBtn')){
-            return
-        }
-    // var ulTodo = document.querySelector('.todos')
-
         dataNum = e.target.closest('li').dataset.num
-        const localData = JSON.parse(localStorage.getItem('testing'))
+        const localData = JSON.parse(localStorage.getItem('todolist'))
         localData[dataNum].checked = !localData[dataNum].checked
         listArr = localData
         // console.log(listArr)
-        saveLocal()
+        saveLocalStorage()
+    }
+    
+    // delete list
+    function deleteTodo(e){
+            dataNum = e.target.closest('li').dataset.num
+            listArr.splice(dataNum, 1)
+            saveLocalStorage()
     }
 
     // save localstorage
-    function saveLocal () {
-        localStorage.setItem('testing', JSON.stringify(listArr))
+    function saveLocalStorage () {
+        localStorage.setItem('todolist', JSON.stringify(listArr))
         showTodo()
     }
 
     // list rendering
     function showTodo (){
-        console.log(localStorage.testing)
+        console.log(localStorage.todolist)
         if (listArr.length === 0) {
             middleSection.classList.add('noArray')
             bottomSection.classList.add('noArray')
@@ -76,14 +71,10 @@ function todoList (){
             bottomSection.classList.remove('noArray')
 
         }
-
         const renderLi = listArr.map( (obj, i) => {
-
-            // ----------------------------------------------------------------- //
-
             return `<li class="todo ${obj.checked===true ? 'checked' : ''}" data-num="${i}">
-                        <span class="todoText">${obj.text}</span>
-                        <button class="btn checkBtn"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn checkBtn"><i class="fa-solid fa-check"></i></button>
+                    <span class="todoText">${obj.text}</span>
                         <button class="btn delBtn"><i class="fa-solid fa-xmark"></i></button>
                     </li>`
         }).join('')
@@ -100,8 +91,8 @@ function todoList (){
     
     // init
     function initTodo (){
-        if (localStorage.testing){
-            const getList = localStorage.getItem('testing')
+        if (localStorage.todolist){
+            const getList = localStorage.getItem('todolist')
             const initList = JSON.parse(getList)
                 listArr.push(...initList)
         }
@@ -112,24 +103,3 @@ function todoList (){
 }
 
 window.addEventListener('DOMContentLoaded', todoList)
-
-
-
-
-
-
-
-
-
-
-        // let newList;
-        // if(!localStorage.test){
-        //     newList = { num: 1, txt: newTodo}
-        // } else {
-        //     newList = { num: localStorage.test.length+1, txt: newTodo}
-        // }
-
-        // listArr.push(newList)
-
-        // localStorage.setItem('test', JSON.stringify(listArr))
-        // // JSON.parse( localstorage key )
