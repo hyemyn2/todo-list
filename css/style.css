@@ -1,168 +1,138 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background: rgba(233, 233, 233, 1);
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.box{
-    width: 350px;
-    margin: 10vh 0;
-}
-
-section {
-    width: 100%;
-    padding: 20px 20px;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-
-}
-
-#upperSection{
-    margin-bottom: 1vh;
-}
-#upperSection h1{
-    text-align: center;
-    margin-bottom: 3vh;
-}
-#upperSection form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#upperSection form input{
-    width: 100%;
-    height: 40px;
-    padding: 0 10px;
-    border : 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#upperSection form button#addBtn{
-    font-size: 30px;
-    border: none;
-    background: rgba(0, 0, 0, 1);
-    color: rgba(255, 255, 255, 1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-    -ms-transition: 0.1s;
-    -o-transition: 0.1s;
-    cursor: pointer;
-
-}
-
-#upperSection form button.addBtn:hover {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.15);
-    color: rgba(0, 0, 0, 1);
-}
-
-#middleSection,
-#bottomSection{
-    display: block;
-}
-
-#middleSection.noArray,
-#bottomSection.noArray{
-    display: none;
-}
-
-#middleSection ul {
-    width: 100%;
-}
-
-#middleSection ul li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    margin: 10px 0;
-    height: 35px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-#middleSection ul li .btn {
-    width: 30px;
-    height: 30px;
-    padding: 8px 15px;
-    border: none;
-    background: transparent;
-    color: rgba(0, 0, 0, 1);
-    text-transform: capitalize;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#middleSection ul li .btn i{
-    pointer-events: none;
-}
-
-#middleSection ul li .btn.checkBtn {
-    color : rgba(0, 0, 0, 0.3);
-}
-
-#middleSection ul li .btn.checkBtn:hover {
-    color : rgba(0, 0, 0, 1);
-}
-
-#middleSection ul li.checked .btn.checkBtn {
-    color : rgba(0, 0, 0, 1);
-
-}
-
-#middleSection ul li .btn.delBtn:hover {
-    color: rgba(255, 2, 2, 1)
-}
-
-
-#middleSection ul li .todoText {
-    flex-grow: 1; 
-    margin-left: 10px;
-    padding-bottom: 5px;
-    color : rgba(0, 0, 0, 0.45);
-}
-
-#middleSection ul li.checked .todoText {
-    color : rgba(0, 0, 0, 1);
-    font-weight: bolder;
-}
-
-
-
-#bottomSection{
-    text-align: end;
-}
-
-#bottomSection #clearBtn{
-    background-color: rgba(255, 255, 255, 1);
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-    -ms-transition: 0.1s;
-    -o-transition: 0.1s;
-    text-transform: capitalize;
-    cursor: pointer;
-}
+                    * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                        font-weight: 100;
+                    }
+                    
+                    li {
+                        list-style: none;
+                        padding: 1vh 0;
+                    }
+                    
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: rgba(233, 233, 233, 1);
+                    }
+                    
+                    #app {
+                        width: 380px;
+                        margin: 15vh 0;
+                    }
+                    
+                    section {
+                        width: 100%;
+                        background: white;
+                        padding: 2vh 3vh;
+                        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+                    }
+                    
+                    #upperSection {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 2vh;
+                    }
+                    
+                    #upperSection h1 {
+                        text-align: center;
+                        margin-bottom: 2vh;
+                        text-transform: capitalize;
+                    }
+                    
+                    #upperSection form {
+                        width: 100%;
+                        display: flex;
+                    }
+                    
+                    #upperSection form #inputTodo {
+                        width: 100%;
+                        border: none;
+                        border: 1px solid rgba(0, 0, 0, 0.15);
+                        padding-left: 1.5vh;
+                        height: 40px;
+                    }
+                    
+                    #upperSection form #inputTodo:focus {
+                        outline: none;
+                    }
+                    
+                    #upperSection form #addBtn {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 1.5rem;
+                        border: none;
+                        cursor: pointer;
+                        color: rgba(0, 0, 0, 0.5)
+                    }
+                    
+                    .todo {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-bottom: 1px solid rgba(233, 233, 233, 1);
+                    }
+                    
+                    .todo #checkBtn {
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                    }
+                    
+                    .todo #checkBtn i {
+                        line-height: 12px;
+                        width: 15px;
+                        height: 15px;
+                        margin: 2px;
+                        color: transparent;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        pointer-events: none;
+                    }
+                    
+                    .todo.checked #checkBtn i {
+                        border: 1px solid rgba(0, 0, 0, 0);
+                        color: mediumturquoise;
+                    }
+                    
+                    .todo span {
+                        width: 100%;
+                        padding: 0 2vh;
+                        white-space: pre-wrap;
+                        word-break: break-all;
+                    }
+                    
+                    .todo #deleteBtn {
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        color: rgba(0, 0, 0, 0.3);
+                    }
+                    
+                    .todo #deleteBtn i {
+                        pointer-events: none;
+                    }
+                    
+                    #lowerSection {
+                        text-align: right;
+                    }
+                    
+                    #lowerSection #clearBtn {
+                        background: transparent;
+                        border: none;
+                        text-transform: capitalize;
+                        cursor: pointer;
+                    }
+                    
+                    #middleSection,
+                    #lowerSection {
+                        display: block;
+                    }
+                    
+                    #middleSection.inactive,
+                    #lowerSection.inactive {
+                        display: none;
+                    }

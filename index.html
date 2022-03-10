@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="todoList.js"></script>
+    <title>todo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./todoList.js"></script>
     <script src="https://kit.fontawesome.com/011d02b296.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <main>
-        <div class="box">
-            <section id="upperSection">
-                <h1>Todo List</h1>
 
-                <form id="todoList" action="" name="todoList">
-                    <input id="inputList" type="text" placeholder="add your todo list !" autocomplete="off">
-                    <button id="addBtn" class="btn" type="submit">+</button>
-                </form>
-            </section>
-            <section id="middleSection">
-                <ul id="todos">
-                    <!-- <li class="todo">
-                        <button class="btn checkBtn">v</button>
-                        <span class="todoText">${arr}</span>
-                        <button class="btn delBtn">X</button>
-                    </li> -->
-                </ul>
-            </section>
-            <section id="bottomSection">
-                <button id="clearBtn">
-                    <span>clear all </span>
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </section>
-        </div>
-    </main>
+<body>
+    <div id="app">
+        <section id="upperSection">
+            <h1>todo list</h1>
+            <form action="submit" autocomplete="off">
+                <input id="inputTodo" type="text" placeholder="Add your todo list!">
+                <button id="addBtn">+</button>
+            </form>
+        </section>
+        <section id="middleSection">
+            <ul id="todoList">
+                <li class="todo"></li>
+                <li class="todo"></li>
+                <li class="todo"></li>
+            </ul>
+        </section>
+        <section id="lowerSection">
+            <button id="clearBtn">
+                <span>clear all</span>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </section>
+    </div>
 </body>
+
 </html>

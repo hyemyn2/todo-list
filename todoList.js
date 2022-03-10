@@ -1,103 +1,100 @@
-function todoList () {
-    const inputList = document.getElementById('inputList')
+function todoList() {
+
     const addBtn = document.getElementById('addBtn')
+    const inputTodo = document.getElementById('inputTodo')
     const clearBtn = document.getElementById('clearBtn')
-    const ulTodo = document.getElementById('todos')
+    const ulTodo = document.getElementById('todoList')
     const middleSection = document.getElementById('middleSection')
-    const bottomSection = document.getElementById('bottomSection')
-    let listArr = []
-    let dataNum = 0
+    const lowerSection = document.getElementById('lowerSection')
 
-    // -------------------- event handler --------------------
+    // event listener
+    addBtn.addEventListener('click', clickAddBtn)
+    clearBtn.addEventListener('click', clearTodoList)
+    ulTodo.addEventListener('click', function(e) { clickTodoBtn(e) })
 
-    addBtn.addEventListener('click', function (e) { addTodo(e) })
-    clearBtn.addEventListener('click', function (e) { clearLocal(e) })
-    ulTodo.addEventListener('click', function (e) { clickTodo(e) })
 
-    // -------------------- event function --------------------
+    function getLocalStorage() {
+        let savedArr = JSON.parse(localStorage.getItem('todo')) || []
+        return savedArr
+    }
 
-    // click button(delete/check)
-    function clickTodo (e) {
+    function setLocalStorage(list) {
+        localStorage.setItem('todo', JSON.stringify(list))
+    }
 
-        if (e.target.className.includes('delBtn') === true) {
-            deleteTodo(e)
-        } else if (((e.target.className.includes('checkBtn') === true) || (e.target.className.includes('todo') === true)) && (e.target.className.includes('delBtn') === false)) {
+    function clickAddBtn(e) {
+        e.preventDefault()
+        if (inputTodo.value === '') {
+            return
+        }
+        addTodo()
+    }
+
+    function addTodo() {
+        const newTodo = { text: inputTodo.value, checked: false }
+        inputTodo.value = ''
+        const newArr = [...getLocalStorage(), newTodo]
+        showTodoList(newArr)
+
+    }
+
+    function clickTodoBtn(e) {
+        if (e.target.id === 'checkBtn') {
             checkTodo(e)
+        } else if (e.target.id === 'deleteBtn') {
+            deleteTodo(e)
         }
     }
 
-    // add list
-    function addTodo (e){
-        e.preventDefault();
-        const newTodo = {text: inputList.value, checked: false}
-        if(inputList.value !== '') {
-            listArr.push(newTodo);
-            saveLocalStorage()
-            inputList.focus()
-        }
-            inputList.value = '';
+    function deleteTodo(e) {
+        const deleteNum = e.target.closest('li').dataset.num
+        const savedArr = getLocalStorage()
+        const newArr = savedArr.filter((todo, i) => i !== Number(deleteNum))
+        showTodoList(newArr)
     }
 
-    // check list
-    function checkTodo(e){
-        dataNum = e.target.closest('li').dataset.num
-        const localData = JSON.parse(localStorage.getItem('todolist'))
-        localData[dataNum].checked = !localData[dataNum].checked
-        listArr = localData
-        saveLocalStorage()
-    }
-    
-    // delete list
-    function deleteTodo(e){
-            dataNum = e.target.closest('li').dataset.num
-            listArr.splice(dataNum, 1)
-            saveLocalStorage()
+    function checkTodo(e) {
+        const checkNum = e.target.closest('li').dataset.num
+        const savedArr = getLocalStorage()
+        const newArr = [...savedArr]
+        newArr[checkNum].checked = !savedArr[checkNum].checked
+        showTodoList(newArr)
     }
 
-    // save localstorage
-    function saveLocalStorage () {
-        localStorage.setItem('todolist', JSON.stringify(listArr))
-        showTodo()
+    function clearTodoList() {
+        showTodoList([])
     }
 
-    // list rendering
-    function showTodo (){
-        console.log(localStorage.todolist)
-        if (listArr.length === 0) {
-            middleSection.classList.add('noArray')
-            bottomSection.classList.add('noArray')
+    function showTodoList(list) {
+        setLocalStorage(list)
+        renderTodoList(list)
+    }
+
+    function renderTodoList(list) {
+        sectionInactive(list)
+        const liTodo = list.map((todo, i) => `<li class="todo ${todo.checked===true ? "checked" : ""}" data-num="${i}">
+            <button id="checkBtn"><i class="fa-solid fa-check"></i></button>
+            <span>${todo.text}</span>
+            <button id="deleteBtn"><i class="fa-solid fa-xmark"></i></button
+        </li>`).join('')
+        ulTodo.innerHTML = liTodo
+    }
+
+    function sectionInactive(list) {
+        if (list.length === 0) {
+            middleSection.classList.add('inactive')
+            lowerSection.classList.add('inactive')
         } else {
-            middleSection.classList.remove('noArray')
-            bottomSection.classList.remove('noArray')
-
+            middleSection.classList.remove('inactive')
+            lowerSection.classList.remove('inactive')
         }
-        const renderLi = listArr.map( (obj, i) => {
-            return `<li class="todo ${obj.checked===true ? 'checked' : ''}" data-num="${i}">
-                    <button class="btn checkBtn"><i class="fa-solid fa-check"></i></button>
-                    <span class="todoText">${obj.text}</span>
-                        <button class="btn delBtn"><i class="fa-solid fa-xmark"></i></button>
-                    </li>`
-        }).join('')
-        ulTodo.innerHTML = renderLi;
     }
 
-
-
-    function clearLocal (){
-        localStorage.clear()
-        listArr = []
-        showTodo()
+    function init() {
+        const initArr = getLocalStorage()
+        renderTodoList(initArr)
     }
-    
-    // init
-    function initTodo (){
-        if (localStorage.todolist){
-            const getList = localStorage.getItem('todolist')
-            const initList = JSON.parse(getList)
-                listArr.push(...initList)
-        }
-        showTodo();
-    }
-    initTodo()
+    init()
 }
+
 window.addEventListener('DOMContentLoaded', todoList)
