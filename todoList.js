@@ -1,12 +1,12 @@
-function todoList (){
+function todoList () {
     const inputList = document.getElementById('inputList')
     const addBtn = document.getElementById('addBtn')
     const clearBtn = document.getElementById('clearBtn')
     const ulTodo = document.getElementById('todos')
     const middleSection = document.getElementById('middleSection')
     const bottomSection = document.getElementById('bottomSection')
-    var listArr = []
-    var dataNum = 0
+    let listArr = []
+    let dataNum = 0
 
     // -------------------- event handler --------------------
 
@@ -18,6 +18,7 @@ function todoList (){
 
     // click button(delete/check)
     function clickTodo (e) {
+
         if (e.target.className.includes('delBtn') === true) {
             deleteTodo(e)
         } else if (((e.target.className.includes('checkBtn') === true) || (e.target.className.includes('todo') === true)) && (e.target.className.includes('delBtn') === false)) {
@@ -43,7 +44,6 @@ function todoList (){
         const localData = JSON.parse(localStorage.getItem('todolist'))
         localData[dataNum].checked = !localData[dataNum].checked
         listArr = localData
-        // console.log(listArr)
         saveLocalStorage()
     }
     
@@ -97,9 +97,7 @@ function todoList (){
                 listArr.push(...initList)
         }
         showTodo();
-
     }
     initTodo()
 }
-
 window.addEventListener('DOMContentLoaded', todoList)

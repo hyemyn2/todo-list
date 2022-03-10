@@ -98,15 +98,6 @@ section {
     cursor: pointer;
 }
 
-#middleSection ul li:hover {
-
-}
-
-
-#middleSection ul li.checked {
-}
-
-
 #middleSection ul li .btn {
     width: 30px;
     height: 30px;
