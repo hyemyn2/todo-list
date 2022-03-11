@@ -1,5 +1,4 @@
-function todoList() {
-
+const todoList = () => {
     const addBtn = document.getElementById('addBtn')
     const inputTodo = document.getElementById('inputTodo')
     const clearBtn = document.getElementById('clearBtn')
@@ -37,7 +36,7 @@ function todoList() {
 
     // 리스트 렌더링
     const renderTodoList = (list) => {
-        ulTodo.innerHTML = list.map((todo, i) => `<li class="todo ${todo.checked===true ? "checked" : ""}" data-num="${i}">
+        ulTodo.innerHTML = list.map((todo, i) => `<li class="todo ${todo.checked === true ? 'checked' : ''}" data-num="${i}">
             <button id="checkBtn"><i class="fa-solid fa-check"></i></button>
             <span>${todo.text}</span>
             <button id="deleteBtn"><i class="fa-solid fa-xmark"></i></button
@@ -75,7 +74,5 @@ function todoList() {
 
     // 클릭이벤트 : 투두리스트 전체 삭제 실행
     const clearTodoList = () => showTodoList([])
-
 }
-
-window.addEventListener('DOMContentLoaded', todoList)
+window.addEventListener('DOMContentLoaded', () => todoList())
