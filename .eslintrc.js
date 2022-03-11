@@ -1,20 +1,17 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
-  },
-  extends: [
-    'standard'
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  plugins: [
-    '@typescript-eslint'
-  ],
-  rules: {
-    indent: 4
-  }
+    env: {
+        browser: true,
+        es2021: true
+    },
+    extends: [
+        'standard'
+    ],
+    parserOptions: {
+        ecmaVersion: 'latest'
+    },
+    rules: {
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        indent: 4
+    }
 }
