@@ -1,138 +1,138 @@
-                    * {
-                        box-sizing: border-box;
-                        margin: 0;
-                        padding: 0;
-                        font-weight: 100;
-                    }
-                    
-                    li {
-                        list-style: none;
-                        padding: 1vh 0;
-                    }
-                    
-                    body {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background: rgba(233, 233, 233, 1);
-                    }
-                    
-                    #app {
-                        width: 380px;
-                        margin: 15vh 0;
-                    }
-                    
-                    section {
-                        width: 100%;
-                        background: white;
-                        padding: 2vh 3vh;
-                        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-                    }
-                    
-                    #upperSection {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        margin-bottom: 2vh;
-                    }
-                    
-                    #upperSection h1 {
-                        text-align: center;
-                        margin-bottom: 2vh;
-                        text-transform: capitalize;
-                    }
-                    
-                    #upperSection form {
-                        width: 100%;
-                        display: flex;
-                    }
-                    
-                    #upperSection form #inputTodo {
-                        width: 100%;
-                        border: none;
-                        border: 1px solid rgba(0, 0, 0, 0.15);
-                        padding-left: 1.5vh;
-                        height: 40px;
-                    }
-                    
-                    #upperSection form #inputTodo:focus {
-                        outline: none;
-                    }
-                    
-                    #upperSection form #addBtn {
-                        width: 40px;
-                        height: 40px;
-                        font-size: 1.5rem;
-                        border: none;
-                        cursor: pointer;
-                        color: rgba(0, 0, 0, 0.5)
-                    }
-                    
-                    .todo {
-                        width: 100%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-bottom: 1px solid rgba(233, 233, 233, 1);
-                    }
-                    
-                    .todo #checkBtn {
-                        background: transparent;
-                        border: none;
-                        cursor: pointer;
-                    }
-                    
-                    .todo #checkBtn i {
-                        line-height: 12px;
-                        width: 15px;
-                        height: 15px;
-                        margin: 2px;
-                        color: transparent;
-                        border: 1px solid rgba(0, 0, 0, 0.3);
-                        pointer-events: none;
-                    }
-                    
-                    .todo.checked #checkBtn i {
-                        border: 1px solid rgba(0, 0, 0, 0);
-                        color: mediumturquoise;
-                    }
-                    
-                    .todo span {
-                        width: 100%;
-                        padding: 0 2vh;
-                        white-space: pre-wrap;
-                        word-break: break-all;
-                    }
-                    
-                    .todo #deleteBtn {
-                        background: transparent;
-                        border: none;
-                        cursor: pointer;
-                        color: rgba(0, 0, 0, 0.3);
-                    }
-                    
-                    .todo #deleteBtn i {
-                        pointer-events: none;
-                    }
-                    
-                    #lowerSection {
-                        text-align: right;
-                    }
-                    
-                    #lowerSection #clearBtn {
-                        background: transparent;
-                        border: none;
-                        text-transform: capitalize;
-                        cursor: pointer;
-                    }
-                    
-                    #middleSection,
-                    #lowerSection {
-                        display: block;
-                    }
-                    
-                    #middleSection.inactive,
-                    #lowerSection.inactive {
-                        display: none;
-                    }
+                        * {
+                            box-sizing: border-box;
+                            margin: 0;
+                            padding: 0;
+                            font-weight: 100;
+                        }
+                        
+                        li {
+                            list-style: none;
+                            padding: 1vh 0;
+                        }
+                        
+                        body {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: rgba(233, 233, 233, 1);
+                        }
+                        
+                        #app {
+                            width: 380px;
+                            margin: 15vh 0;
+                        }
+                        
+                        section {
+                            width: 100%;
+                            background: white;
+                            padding: 2vh 3vh;
+                            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+                        }
+                        
+                        #upperSection {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 2vh;
+                        }
+                        
+                        #upperSection h1 {
+                            text-align: center;
+                            margin-bottom: 2vh;
+                            text-transform: capitalize;
+                        }
+                        
+                        #upperSection form {
+                            width: 100%;
+                            display: flex;
+                        }
+                        
+                        #upperSection form #inputTodo {
+                            width: 100%;
+                            border: none;
+                            border: 1px solid rgba(0, 0, 0, 0.15);
+                            padding-left: 1.5vh;
+                            height: 40px;
+                        }
+                        
+                        #upperSection form #inputTodo:focus {
+                            outline: none;
+                        }
+                        
+                        #upperSection form #addBtn {
+                            width: 40px;
+                            height: 40px;
+                            font-size: 1.5rem;
+                            border: none;
+                            cursor: pointer;
+                            color: rgba(0, 0, 0, 0.5)
+                        }
+                        
+                        .todo {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-bottom: 1px solid rgba(233, 233, 233, 1);
+                        }
+                        
+                        .todo #checkBtn {
+                            background: transparent;
+                            border: none;
+                            cursor: pointer;
+                        }
+                        
+                        .todo #checkBtn i {
+                            line-height: 12px;
+                            width: 15px;
+                            height: 15px;
+                            margin: 2px;
+                            color: transparent;
+                            border: 1px solid rgba(0, 0, 0, 0.3);
+                            pointer-events: none;
+                        }
+                        
+                        .todo.checked #checkBtn i {
+                            border: 1px solid rgba(0, 0, 0, 0);
+                            color: mediumturquoise;
+                        }
+                        
+                        .todo span {
+                            width: 100%;
+                            padding: 0 2vh;
+                            white-space: pre-wrap;
+                            word-break: break-all;
+                        }
+                        
+                        .todo #deleteBtn {
+                            background: transparent;
+                            border: none;
+                            cursor: pointer;
+                            color: rgba(0, 0, 0, 0.3);
+                        }
+                        
+                        .todo #deleteBtn i {
+                            pointer-events: none;
+                        }
+                        
+                        #lowerSection {
+                            text-align: right;
+                        }
+                        
+                        #lowerSection #clearBtn {
+                            background: transparent;
+                            border: none;
+                            text-transform: capitalize;
+                            cursor: pointer;
+                        }
+                        
+                        #app #middleSection,
+                        #app #lowerSection {
+                            display: block;
+                        }
+                        
+                        #app.inactive #middleSection,
+                        #app.inactive #lowerSection {
+                            display: none;
+                        }
